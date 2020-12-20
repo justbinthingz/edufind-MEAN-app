@@ -10,12 +10,12 @@ export const routerTransition: AnimationMetadata = trigger('routerTransition', [
 
   transition(':enter', [
     style({ transform: 'translateY(20%)', opacity: 0 }),
-    animate('0.8s ease-in out', style({ transform: 'translateY(0%)', opacity: 1 }))
+    animate('0.8s ease-in', style({ transform: 'translateY(0%)', opacity: 1 }))
   ]),
 
   transition(':leave', [
     style({ transform: 'translateY(0%)' }),
-    animate('0.8s ease-in out', style({ transform: 'translateY(-20%)', opacity: 0 }))
+    animate('0.8s ease-in', style({ transform: 'translateY(-20%)', opacity: 0 }))
   ])
 ])
 

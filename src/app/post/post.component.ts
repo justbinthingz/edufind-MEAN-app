@@ -3,11 +3,14 @@ import { PostService } from '../post.service';
 import { Post } from '../post'
 import { Router, ActivatedRoute } from '@angular/router'
 import { FormBuilder, FormsModule, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms'
+import { routerTransition } from '../animations'
 
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.scss']
+  styleUrls: ['./post.component.scss'],
+  animations: [routerTransition],
+  host: { '[@routerTransition]': '' }
 })
 export class PostComponent implements OnInit {
   posts: any;
@@ -15,7 +18,7 @@ export class PostComponent implements OnInit {
   constructor(private _postService: PostService, fb: FormBuilder, private router: Router) {
     this.postForm = fb.group({
       'title': [null, Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(75)])],
-      'url': [null, Validators.required],
+      'url': [null, Validators.compose([Validators.required])],
       'description': [null, Validators.compose([Validators.required, Validators.minLength(30), Validators.maxLength(500)])],
 
     })

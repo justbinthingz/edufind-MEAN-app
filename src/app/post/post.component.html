@@ -7,16 +7,14 @@
     <div class="row">
       <div class="columns small-12 medium-6">
         <label>Title of Tutorial
-          <input type="text" name="title" [formControlName]="postForm.controls['title']"
-            [formControl]="postForm.controls['title']" />
+          <input type="text" name="title" [formControl]="postForm.controls['title']" />
         </label>
         <div class="alert" *ngIf="!postForm.controls['title'].valid && postForm.controls['title'].touched">You must
           specify a title that's atleast 15 characters</div>
       </div>
       <div class="columns small-12 medium-6">
         <label>URL
-          <input type="url" name="url" [formControlName]="postForm.controls['url']"
-            [formControl]="postForm.controls['url']" />
+          <input type="text" name="url" [formControl]="postForm.controls['url']" />
         </label>
         <div class="alert" *ngIf="!postForm.controls['url'].valid && postForm.controls['url'].touched">You must specify
           url</div>
